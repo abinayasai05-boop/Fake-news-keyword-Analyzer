@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fake News Keyword Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="logo">🔎</div>
+
+        <div>
+            <h1>Fake News Keyword Analyzer</h1>
+            <p>
+                Analyze suspicious language patterns in news content
+                using rule-based NLP.
+            </p>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="input-card">
+
+            <h2>📰 News Analyzer</h2>
+
+            <textarea
+                id="newsText"
+                placeholder="Paste a news headline or article here..."
+            ></textarea>
+
+            <div class="actions">
+
+                <button onclick="analyzeNews()">
+                    🔍 Analyze News
+                </button>
+
+                <button class="clear" onclick="clearText()">
+                    Clear
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section id="results" class="results hidden">
+
+            <div class="result-card">
+
+                <div class="result-header">
+                    <span id="resultIcon">🟢</span>
+
+                    <div>
+                        <h2 id="resultTitle">
+                            Likely Reliable
+                        </h2>
+
+                        <p id="resultDescription">
+                            Analysis completed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="risk-container">
+
+                    <div class="risk-label">
+                        <span>Fake News Risk</span>
+                        <strong id="riskPercentage">0%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div id="riskBar"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span>📝</span>
+                    <h3 id="wordCount">0</h3>
+                    <p>Words</p>
+                </div>
+
+                <div class="stat">
+                    <span>📄</span>
+                    <h3 id="sentenceCount">0</h3>
+                    <p>Sentences</p>
+                </div>
+
+                <div class="stat">
+                    <span>❗</span>
+                    <h3 id="exclamationCount">0</h3>
+                    <p>Exclamations</p>
+                </div>
+
+                <div class="stat">
+                    <span>❓</span>
+                    <h3 id="questionCount">0</h3>
+                    <p>Questions</p>
+                </div>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="detail-card">
+
+                    <h3>🚨 Suspicious Keywords</h3>
+
+                    <div id="fakeKeywords"
+                         class="keyword-container">
+                    </div>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <h3>✅ Reliable Keywords</h3>
+
+                    <div id="reliableKeywords"
+                         class="keyword-container">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="reason-card">
+
+                <h3>💡 Analysis</h3>
+
+                <ul id="reasons"></ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Fake News Keyword Analyzer • Rule-Based NLP Project
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
